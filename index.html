@@ -41,9 +41,9 @@
             }else if(compPlay === 3){
                 return myArray[2]      
             
-            }
+            
         }
-
+    }
         function playRound(){
             console.log(playerSelection, computerSelection)
             if(playerSelection === computerSelection){
@@ -71,16 +71,17 @@
         
         function game(){
             numberOfGames()
-            do{
+            for(let i = 0; i <games; i++){
                 computerPlay()
                 playerPlay()
                 playRound()
-                plays++
-            }while(plays < games)
+                
+            }
         }
 
         game()
         checkWin()
+        
 
         
 
