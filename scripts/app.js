@@ -20,13 +20,13 @@ function computerPlay(){
 
 function playerPlay(){
     let playerPlay = prompt('rock paper or scissors')
-    if(playerPlay === 'rock'){
+    if(playerPlay.toLowerCase() === 'rock'){
         playerSelection = 'rock'
         return playerSelection
-    }else if(playerPlay === 'paper'){
+    }else if(playerPlay.toLowerCase() === 'paper'){
         playerSelection = 'paper'
         return playerSelection
-    }else if(playerPlay === 'scissors'){
+    }else if(playerPlay.toLowerCase() === 'scissors'){
         playerSelection = 'scissors'
         return playerSelection
     }
