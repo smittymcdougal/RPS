@@ -2,63 +2,62 @@ let playerSelection
 let computerSelection
 let playerScore = 0
 let computerScore= 0
-let games = 0
+let games;
+let buttons = document.querySelectorAll('button')
+let p = document.createElement('p')
+let scores = document.getElementById('scores')
+let img = document.createElement('i')
+
+let playerSection = document.getElementById('playerSection')
+let computerSection = document.getElementById('computerSection')
+let playerPara = document.createElement('p')
+let computerPara = document.createElement('p')
+
+
+
+const myArray = ['rock', 'paper', 'scissors']
+
 
 function computerPlay(){
-    let compPlay = Math.floor(Math.random() * 3)
-    if(compPlay === 0){
-        computerSelection = "rock"
-        return computerSelection
-    }else if(compPlay === 1){
-        computerSelection = "paper"
-        return computerSelection
-    }else{
-        computerSelection = "scissors"
-        return computerSelection
-    }
+    randomNumber = Math.floor(Math.random()* myArray.length)
+    computerSelection = myArray[randomNumber]
+    computerPara.textContent= computerSelection 
+    computerSection.append(computerPara)
+    return computerSelection;
 }
-
 function playerPlay(){
-    let playerPlay = prompt('rock paper or scissors')
-    if(playerPlay.toLowerCase() === 'rock'){
-        playerSelection = 'rock'
-        return playerSelection
-    }else if(playerPlay.toLowerCase() === 'paper'){
-        playerSelection = 'paper'
-        return playerSelection
-    }else if(playerPlay.toLowerCase() === 'scissors'){
-        playerSelection = 'scissors'
-        return playerSelection
-    }
-
-}
-
-function game(){
-    computerPlay()
-    playerPlay()
-    console.log(playerSelection + " " + computerSelection)
-    if(playerSelection === computerSelection){
-        console.log('draw')
-    }else if(playerSelection === 'rock' && computerSelection ==='paper'){
-        console.log('computer + 1')
-        computerScore += 1
-    }else if(playerSelection === 'paper' && computerSelection ==='scissors'){
-        console.log('computer + 1')
-        computerScore += 1
-    }else if(playerSelection ==='scissors' && computerSelection ==='rock'){
-        console.log('computer + 1')
-        computerScore += 1
-    }else{
-        console.log('player + 1')
-        playerScore += 1
-    }
-    
+    buttons.forEach((button)=>{
+        button.addEventListener('click', ()=>{
+            playerSelection = button.id
+            playerPara.textContent = playerSelection
+            playerSection.append(playerPara)
+            playRound(playerSelection, computerSelection)
         
-    
+        })
+    })
+
 }
 
-while(games < 5){
-    game()
-    games +=1
-    console.log(`player: ${playerScore} / computer: ${computerScore}`)
+function playRound(playerSelection, computerSelection){
+    computerSelection = computerPlay()
+    console.log(playerSelection, computerSelection)
+    if(computerSelection === playerSelection){
+        p.textContent = `draw`
+    }else if (computerSelection === 'rock' && playerSelection ==='scissors' ||
+    computerSelection ==='paper' && playerSelection === 'rock' || computerSelection === 'scissors' && playerSelection ==='paper'){
+        computerScore++
+        p.textContent = `${playerScore} / ${computerScore}`
+        scores.appendChild(p)
+        
+    }else{
+        playerScore ++
+        p.textContent = `${playerScore} / ${computerScore}`
+        scores.appendChild(p)
+    }
 }
+
+
+playerPlay()
+
+
+
