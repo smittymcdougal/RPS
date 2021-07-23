@@ -13,7 +13,7 @@
 <body>  
 
     <h1>Rock Paper Scissors</h1>
-    <div>
+    <div id= 'main'>
         <h3 id ='scores'>Scores:</h3>
         <div id ='container'>
             
@@ -25,13 +25,14 @@
                 <h3 id = 'play2'>computer:</h3><br>
             </div>
         </div>
+        <div>
+            <button id = "rock" class="btn btn-primary"><i class="fa fa-hand-rock-o fa-2x" aria-hidden="true"></i></button>
+            <button id = "paper" class="btn btn-primary"><i class="fa fa-hand-paper-o fa-2x" aria-hidden="true"></i></button>
+            <button id = "scissors" class="btn btn-primary"><i class="fa fa-hand-scissors-o fa-2x" aria-hidden="true"></i></button>
+        </div>
 
     </div>
-    <div>
-        <button id = "rock" class="btn btn-primary">Rock</button>
-        <button id = "paper" class="btn btn-primary">Paper</button>
-        <button id = "scissors" class="btn btn-primary">Scissors</button>
-    </div>
+
 
     
     <script src='scripts/app.js'></script>
