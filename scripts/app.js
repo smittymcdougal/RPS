@@ -10,6 +10,8 @@ let img = document.createElement('i')
 
 let playerSection = document.getElementById('playerSection')
 let computerSection = document.getElementById('computerSection')
+let play1 = document.getElementById('play1')
+let play2 = document.getElementById('play2')
 let playerPara = document.createElement('p')
 let computerPara = document.createElement('p')
 
@@ -22,7 +24,7 @@ function computerPlay(){
     randomNumber = Math.floor(Math.random()* myArray.length)
     computerSelection = myArray[randomNumber]
     computerPara.textContent= computerSelection 
-    computerSection.append(computerPara)
+    play2.append(computerPara)
     return computerSelection;
 }
 function playerPlay(){
@@ -30,7 +32,7 @@ function playerPlay(){
         button.addEventListener('click', ()=>{
             playerSelection = button.id
             playerPara.textContent = playerSelection
-            playerSection.append(playerPara)
+            play1.append(playerPara)
             playRound(playerSelection, computerSelection)
         
         })
